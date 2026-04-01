@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1>PDF Merger</h1>
+            <p class="powered-by">Powered by Aniket</p>
+        </div>
+        <nav class="top-navbar">
+            <a href="#" class="nav-link" data-page="merge-page">Merged</a>
+            <a href="#" class="nav-link" data-page="split-page">Split PDF</a>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="welcome-card">
+            <h2>PDF Toolkit</h2>
+            <p>Choose an action from the navigation menu: Merged, Split, or Compress.</p>
+        </div>
+        <section id="merge-page" class="page">
+            <h3>Merge PDF</h3>
+            <div class="upload-section">
+                <input type="file" id="pdf-files" multiple accept=".pdf">
+                <label for="pdf-files" class="upload-label">Choose PDF Files</label>
+                <div id="file-list"></div>
+            </div>
+            <button id="merge-btn" disabled>Merge PDFs</button>
+            <div id="progress" class="hidden">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="progress-text">Merging PDFs...</p>
+            </div>
+            <a id="download-link" class="hidden" download="merged.pdf">Download Merged PDF</a>
+        </section>
+        <section id="split-page" class="page hidden">
+            <h3>Split PDF</h3>
+            <div class="split-controls">
+                <input type="file" id="split-file" accept=".pdf">
+                <label for="split-file" class="upload-label">Choose PDF to Split</label>
+                <div id="split-file-display"></div>
+                <label>From page: <input type="number" id="split-from" min="1" value="1"></label>
+                <label>To page: <input type="number" id="split-to" min="1" value="1"></label>
+                <button id="split-btn" disabled>Split PDF</button>
+            </div>
+            <div id="split-list"></div>
+            <button id="download-all-btn" class="hidden">Download All as ZIP</button>
+        </section>
+    </main>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
